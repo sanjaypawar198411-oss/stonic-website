@@ -111,6 +111,32 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
   <script type="module" crossorigin src="/assets/index-CMgT0BId.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-Cru9TfiC.css">
+
+<script>
+(function(){
+  var DL = '/Atlas-AI-Setup-3.1.10.exe';
+  function startDownload(){
+    var a = document.createElement('a');
+    a.href = DL;
+    a.download = 'Atlas-AI-Setup-3.1.10.exe';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ try { document.body.removeChild(a); } catch(e){} }, 500);
+  }
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('a, button');
+    if (!el) return;
+    var t = (el.textContent || '').trim();
+    var isDlAction = /download\s*(now|for\s*windows)/i.test(t) || el.classList.contains('download-btn');
+    if (isDlAction) {
+      e.preventDefault();
+      e.stopPropagation();
+      startDownload();
+    }
+  }, true);
+})();
+</script>
+
 </head>
 
 <body>
